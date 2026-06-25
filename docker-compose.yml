@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  # Apache
+  apache:
+    image: httpd:latest
+    container_name: apache-muestra
+    ports:
+      - "${APACHE_PORT}:80"
+    volumes:
+      - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+    depends_on:
+      front-muestra:
+        condition: service_started
+      back-muestra:
+        condition: service_started
+
+  # Frontend
+  front-muestra:
+    build:
+      context: ./FE-muestra
+      dockerfile: Dockerfile
+    container_name: front-muestra
+    expose:
+      - "80"
+
+  # Backend (.NET)
+  back-muestra:
+    build:
+      context: ./BE-muestra/BE-muestra
+      dockerfile: Dockerfile
+    container_name: BE-muestra
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${DOTNET_ENV}
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Server=${DB_HOST};Database=${DB_NAME};Uid=root;Pwd=${DB_PASSWORD};
+    expose:
+      - "8080"
+    depends_on:
+      mysql_db:
+        condition: service_started
+  
+  # MySQL
+  mysql_db:
+    image: mysql:latest
+    container_name: mysql-nuestra
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}  
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+
+  # Admin web
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin-nuestra
+    restart: always
+    ports:
+      - "${PHPMYADMIN_PORT}:80"
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=${DB_HOST}
+      - PMA_PORT=${MYSQL_PORT}
+    depends_on:
+      - mysql_db
