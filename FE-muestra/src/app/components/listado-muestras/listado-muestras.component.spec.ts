@@ -1,5 +1,5 @@
+/// <reference types="jest" />
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ListadoMuestrasComponent } from './listado-muestras.component';
 
 describe('ListadoMuestrasComponent', () => {
