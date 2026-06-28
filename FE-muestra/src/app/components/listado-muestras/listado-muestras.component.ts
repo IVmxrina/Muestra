@@ -1,41 +1,57 @@
-import {Component} from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import { Muestra } from '../../interfaces/muestra';
+import { RouterModule } from '@angular/router';
+
 
 /**
- * @title Basic use of `<table mat-table>`
+ * @title Table with pagination
  */
 @Component({
   selector: 'listado-muestras',
-  standalone: true,
   styleUrl: 'listado-muestras.component.css',
   templateUrl: 'listado-muestras.component.html',
-  imports: [MatTableModule],
+  imports: [MatTableModule, MatPaginatorModule, MatInputModule, MatFormFieldModule, MatIconModule, RouterModule],
 })
+export class ListadoMuestrasComponent implements AfterViewInit {
+  displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'acciones'];
+  dataSource = new MatTableDataSource<Muestra>(ELEMENT_DATA);
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-export class ListadoMuestrasComponent {
-    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-    dataSource = ELEMENT_DATA;
- }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+const ELEMENT_DATA: Muestra[] = [
+  {id: 1, nombre: 'Muestra 01', descripcion: "Esta es la muestra 01"},
+  {id: 2, nombre: 'Muestra 02', descripcion: "Esta es la muestra 02"},
+  {id: 3, nombre: 'Muestra 03', descripcion: "Esta es la muestra 03"},
+  {id: 4, nombre: 'Muestra 04', descripcion: "Esta es la muestra 04"},
+  {id: 5, nombre: 'Muestra 05', descripcion: "Esta es la muestra 05"},
+  {id: 6, nombre: 'Muestra 06', descripcion: "Esta es la muestra 06"},
+  {id: 7, nombre: 'Muestra 07', descripcion: "Esta es la muestra 07"},
+  {id: 8, nombre: 'Muestra 08', descripcion: "Esta es la muestra 08"},
+  {id: 9, nombre: 'Muestra 09', descripcion: "Esta es la muestra 09"},
+  {id: 10, nombre: 'Muestra 10', descripcion: "Esta es la muestra 10"},
+  {id: 11, nombre: 'Muestra 11', descripcion: "Esta es la muestra 11"},
+  {id: 12, nombre: 'Muestra 12', descripcion: "Esta es la muestra 12"},
+  {id: 13, nombre: 'Muestra 13', descripcion: "Esta es la muestra 13"},
+  {id: 14, nombre: 'Muestra 14', descripcion: "Esta es la muestra 14"},
+  {id: 15, nombre: 'Muestra 15', descripcion: "Esta es la muestra 15"},
+  {id: 16, nombre: 'Muestra 16', descripcion: "Esta es la muestra 16"},
+  {id: 17, nombre: 'Muestra 17', descripcion: "Esta es la muestra 17"},
+  {id: 18, nombre: 'Muestra 18', descripcion: "Esta es la muestra 18"},
+  {id: 19, nombre: 'Muestra 19', descripcion: "Esta es la muestra 19"},
+  {id: 20, nombre: 'Muestra 20', descripcion: "Esta es la muestra 20"},
 ];
-
-
