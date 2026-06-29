@@ -1,1 +1,29 @@
-<p>agregar-editar-muestra works!</p>
+<div class="body-agregar">
+  <h1>Agregar Muestra</h1>
+  <!-- <mat-spinner class="mat-spinner" *ngIf="isLoading"></mat-spinner>-->
+
+   <mat-card class="card">
+      <mat-card-subtitle>
+        Datos de la muestra
+      </mat-card-subtitle>
+    </mat-card>
+
+  <div class="form-agregar">
+    <form [formGroup]="form" (ngSubmit)="anadirMuestra()">
+      <mat-form-field class="inputs">
+        <mat-label>Nombre de la muestra</mat-label>
+        <input matInput formControlName="nombre">
+      </mat-form-field><br>
+
+      <mat-form-field class="inputs">
+        <mat-label>Descripcion de la muestra</mat-label>
+        <textarea matInput formControlName="descripcion"></textarea>
+      </mat-form-field>
+
+        <div class="example-button-row">
+          <button type="submit" matButton="filled">Enviar</button>
+        </div>
+      </form>
+
+  </div>
+</div>
