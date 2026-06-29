@@ -6,6 +6,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { Muestra } from '../../interfaces/muestra';
 import { RouterModule } from '@angular/router';
+import { MuestraService } from '../../services/muestra.service';
+import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
 
 
 /**
@@ -21,7 +23,13 @@ export class ListadoMuestrasComponent implements AfterViewInit {
   displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'acciones'];
   dataSource = new MatTableDataSource<Muestra>(ELEMENT_DATA);
 
+  muestras: Muestra[] = [];
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  constructor(private _muestraService: MuestraService) {
+
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -31,6 +39,24 @@ export class ListadoMuestrasComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+
+  ngOnInit() {
+    this.obtenerMuestras();
+  }
+
+  async obtenerMuestras() {
+    try {
+      // 👇 'data' hereda automáticamente el tipo Muestra[] gracias al servicio
+      const data = await firstValueFrom(this._muestraService.getMuestras());
+      this.muestras = data;
+      console.log(this.muestras);
+    } catch (error) {
+      console.error('Error al obtener las muestras:', error);
+    }
+  }
+
+
+
 }
 
 const ELEMENT_DATA: Muestra[] = [

@@ -9,6 +9,5 @@ export const routes: Routes = [
   { path: 'listarMuestras', component: ListadoMuestrasComponent },
   { path: 'anadirMuestra', component: AnadirMuestraComponent },
   { path: 'editarMuestra/:id', component: EditarMuestraComponent },
-  { path: 'verMuestra/:id', component: VerMuestraComponent },
-  {path: '**', redirectTo: 'listarMuestras', pathMatch: 'full'}
+  { path: 'verMuestra/:id', component: VerMuestraComponent }
 ];
