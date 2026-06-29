@@ -33,9 +33,9 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=${DOTNET_ENV}
       - ASPNETCORE_URLS=http://+:8080
-      - ConnectionStrings__MySQLConnection=Server=${DB_HOST};Database=${DB_NAME};Uid=root;Pwd=${DB_PASSWORD};
-    expose:
-      - "8080"
+      - "ConnectionStrings__MySQLConnection=Server=${DB_HOST};Database=${DB_NAME};Uid=root;Pwd=${DB_PASSWORD};"
+    ports:
+      - "8080:8080"
     depends_on:
       mysql_db:
         condition: service_started
