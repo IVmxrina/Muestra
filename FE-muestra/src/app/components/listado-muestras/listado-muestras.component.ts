@@ -15,7 +15,7 @@ import { RouterModule } from '@angular/router';
   selector: 'listado-muestras',
   styleUrl: 'listado-muestras.component.css',
   templateUrl: 'listado-muestras.component.html',
-  imports: [MatTableModule, MatPaginatorModule, MatInputModule, MatFormFieldModule, MatIconModule, RouterModule],
+  imports: [MatTableModule, MatPaginatorModule, MatInputModule, MatIconModule, RouterModule],
 })
 export class ListadoMuestrasComponent implements AfterViewInit {
   displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'acciones'];

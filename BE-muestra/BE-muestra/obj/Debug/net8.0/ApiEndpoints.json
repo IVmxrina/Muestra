@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "BE_muestra.Controllers.MuestraController",
+    "Method": "Get",
+    "RelativePath": "api/Muestra",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BE_muestra.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
