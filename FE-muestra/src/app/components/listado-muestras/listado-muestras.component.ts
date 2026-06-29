@@ -49,10 +49,13 @@ export class ListadoMuestrasComponent implements AfterViewInit {
       const data = await firstValueFrom(this._muestraService.getMuestras());
       this.muestras = data;
       this.dataSource.data = this.muestras;
-      console.log(this.dataSource.data);
     } catch (error) {
       console.error('Error al obtener las muestras:', error);
     }
+  }
+
+  check(id: number){
+    console.log(id);
   }
 
 

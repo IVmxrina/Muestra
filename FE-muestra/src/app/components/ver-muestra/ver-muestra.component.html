@@ -1,1 +1,8 @@
-<p>ver-muestra works!</p>
+<h1>Ver muestra</h1>
+
+<p>Nombre de la muestra: {{ muestra!.nombre }}</p>
+<p>Descripción de la muestra: {{ muestra!.descripcion }}</p>
+
+<div class="example-button-row">
+          <button [routerLink]="['/']" matButton="outlined">Cancelar</button>
+        </div>

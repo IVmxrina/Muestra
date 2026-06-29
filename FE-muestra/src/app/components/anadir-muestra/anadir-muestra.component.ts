@@ -7,11 +7,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from "@angular/router";
 
 
 @Component({
   selector: 'app-anadir-muestra',
-  imports: [MatProgressSpinnerModule, MatCardModule, MatSelectModule, MatInputModule,  MatIconModule, MatDividerModule, MatButtonModule, ReactiveFormsModule],
+  imports: [MatProgressSpinnerModule, MatCardModule, MatSelectModule, MatInputModule, MatIconModule, MatDividerModule, MatButtonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './anadir-muestra.component.html',
   styleUrl: './anadir-muestra.component.css'
 })

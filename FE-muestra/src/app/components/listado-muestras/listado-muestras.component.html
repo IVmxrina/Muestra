@@ -28,12 +28,12 @@
 
     <ng-container matColumnDef="acciones">
       <th mat-header-cell *matHeaderCellDef>
-        <button [routerLink]="['/anadirMuestra']">Agregar muestra</button>
+        <mat-icon [routerLink]="['/anadirMuestra']"  matToolTip="Añadir una nueva muestra" aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
       </th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon [routerLink]="['/verMuestra', 1]" matToolTip="Detales" aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
-        <mat-icon [routerLink]="['/editarMuestra', 1]" matToolTip="Editar" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
-        <mat-icon [routerLink]="['/eliminarMuestra', 1]" matToolTip="Eliminar" aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+        <mat-icon [routerLink]="['/verMuestra/', element.id]" (click)="check(element.id)" matToolTip="Detalles" aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
+        <mat-icon [routerLink]="['/editarMuestra/', element.id]" matToolTip="Editar" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+        <mat-icon [routerLink]="['/eliminarMuestra/', element.id]" matToolTip="Eliminar" aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
       </td>
     </ng-container>
 
