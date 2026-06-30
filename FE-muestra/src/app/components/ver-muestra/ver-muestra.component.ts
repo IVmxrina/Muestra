@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Muestra } from '../../interfaces/muestra';
 import { MuestraService } from '../../services/muestra.service';
 import { ActivatedRoute } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import {RouterLink} from "@angular/router";
 import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-ver-muestra',
@@ -21,6 +22,13 @@ export class VerMuestraComponent implements OnInit {
     };
     id: number = 0;
 
+    // Snackbar
+  private _snackBar = inject(MatSnackBar);
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
+
   constructor(private _muestraService: MuestraService,  private aRoute: ActivatedRoute) {
       this.id = Number(this.aRoute.snapshot.paramMap.get('id'));
     }
@@ -34,9 +42,9 @@ export class VerMuestraComponent implements OnInit {
 
       const data = await firstValueFrom(this._muestraService.getMuestra(this.id));
       this.muestra = data;
-
     } catch (error) {
-      console.error('Error al obtener la muestra:', error);
+      this.openSnackBar("ERROR: La muestra no ha podido ser mostrada", "Aceptar")
+
     }
 
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
@@ -9,6 +9,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from "@angular/router";
 import { firstValueFrom } from 'rxjs';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 import { MuestraService } from '../../services/muestra.service';
 import { Muestra } from '../../interfaces/muestra';
 
@@ -23,6 +25,15 @@ export class AnadirMuestraComponent implements OnInit {
   isLoading: boolean = true;
   form: FormGroup;
   muestra!: Muestra;
+
+  // Snackbar
+  private _snackBar = inject(MatSnackBar);
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
+
+
 
   constructor(private fb: FormBuilder, private _muestraService:MuestraService) {
     this.form = this.fb.group({
@@ -49,15 +60,15 @@ export class AnadirMuestraComponent implements OnInit {
   };
 
   try {
-    console.log("Enviando este objeto exacto a .NET:", objetoParaEnviar);
 
     const muestraAdded = await firstValueFrom(this._muestraService.addMuestra(objetoParaEnviar));
 
-    console.log("¡Éxito total! Guardado en BD:", muestraAdded);
-    this.form.reset(); // Limpiamos el formulario al terminar
+    this.openSnackBar("La muestra ha sido añadida con exito", "Aceptar")
+
+    this.form.reset();
 
   } catch (error) {
-    console.error("Error al insertar la muestra desde Angular:", error);
+    this.openSnackBar("ERROR: La muestra no ha podido ser añadida", "Aceptar");
   }
 }
 

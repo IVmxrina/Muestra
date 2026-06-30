@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MuestraService } from '../../services/muestra.service';
 import { ActivatedRoute } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import {RouterLink} from "@angular/router";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-eliminar-muestra',
@@ -12,6 +13,13 @@ import {RouterLink} from "@angular/router";
 })
 export class EliminarMuestraComponent {
   id: number = 0;
+
+  // Snackbar
+  private _snackBar = inject(MatSnackBar);
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
 
   constructor(private _muestraService: MuestraService, private route: ActivatedRoute) {
 
@@ -24,9 +32,11 @@ export class EliminarMuestraComponent {
   async eliminarMuestra() {
     try{
       const response = await firstValueFrom(this._muestraService.deleteMuestra(this.id));
-      console.log(response);
+      this.openSnackBar("La muestra ha sido eliminada con exito", "Aceptar")
+
     } catch (error) {
-      console.error(error);
+      this.openSnackBar("ERROR: La muestra no ha podido ser añadida", "Aceptar")
+
     }
   }
 

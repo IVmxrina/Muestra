@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
@@ -8,6 +8,9 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from "@angular/router";
 import { firstValueFrom } from 'rxjs';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
+
 import { MuestraService } from '../../services/muestra.service';
 import { Muestra } from '../../interfaces/muestra';
 
@@ -29,6 +32,13 @@ import { Muestra } from '../../interfaces/muestra';
 export class EditarMuestraComponent {
     editarMuestraForm: FormGroup;
     id: number = 0;
+
+    // Snackbar
+    private _snackBar = inject(MatSnackBar);
+
+    openSnackBar(message: string, action: string) {
+      this._snackBar.open(message, action);
+    }
 
     constructor(private formBuilder: FormBuilder, private _muestraService: MuestraService, private route: ActivatedRoute) {
       this.editarMuestraForm = this.formBuilder.group({
@@ -56,9 +66,11 @@ export class EditarMuestraComponent {
         }
 
         const muestraModified = await firstValueFrom(this._muestraService.updateMuestra(this.id, muestraOriginal));
-        console.log('Muestra editada:', muestraModified);
+        this.openSnackBar("La muestra ha sido modificada con exito", "Aceptar")
+
       } catch (error) {
-        console.error('Error al editar la muestra:', error);
+        this.openSnackBar("ERROR: La muestra no ha podido ser modificada", "Aceptar")
+
       }
     }
 
