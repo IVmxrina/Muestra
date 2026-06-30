@@ -73,12 +73,15 @@ namespace BE_muestra.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(Muestra muestra)
         {
+
             try
             {
-                muestra.fechaCreacion = DateTime.Now;
+                muestra.FechaCreacion = DateTime.Now;
                 _context.Add(muestra);
                 await _context.SaveChangesAsync();
-                return CreatedAtAction("Get", new { id = muestra.Id}, muestra);
+
+                return Ok();
+                
             }
             catch (Exception e) 
             {
