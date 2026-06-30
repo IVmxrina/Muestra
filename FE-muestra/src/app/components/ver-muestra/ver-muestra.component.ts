@@ -23,7 +23,6 @@ export class VerMuestraComponent implements OnInit {
 
   constructor(private _muestraService: MuestraService,  private aRoute: ActivatedRoute) {
       this.id = Number(this.aRoute.snapshot.paramMap.get('id'));
-
     }
 
   ngOnInit(): void {
