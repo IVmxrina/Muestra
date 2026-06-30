@@ -1,1 +1,25 @@
-<p>editar-muestra works!</p>
+<div class="body-main">
+  <h1>Editar Muestra</h1>
+  <div class="main-contenidos">
+    <div class="contenidos-form">
+      <form [formGroup]="editarMuestraForm" (ngSubmit)="anadirMuestra()">
+        <mat-form-field class="inputs">
+        <mat-label>Nombre de la muestra</mat-label>
+        <input matInput formControlName="nombre">
+      </mat-form-field><br>
+
+      <mat-form-field class="inputs">
+        <mat-label>Descripcion de la muestra</mat-label>
+        <textarea matInput formControlName="descripcion"></textarea>
+      </mat-form-field>
+
+        <div class="example-button-row">
+          <button class="botones" type="submit" matButton="filled">Editar</button>
+        </div>
+      </form><br>
+        <div class="example-button-row">
+          <button class="botones" [routerLink]="['/']" matButton="outlined">Cancelar</button>
+        </div>
+    </div>
+  </div>
+</div>

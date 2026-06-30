@@ -25,8 +25,8 @@ export class MuestraService {
     return this.http.post<Muestra>(`${this.myAppUrl + this.myApiUrl}`, muestra);
   }
 
-  updateMuestra(id: number, muestra: Muestra): Observable<Muestra> {
-    return this.http.put<Muestra>(`${this.myAppUrl + this.myApiUrl}${id}`, muestra);
+  updateMuestra(id: number, muestra: Muestra): Observable<string> {
+    return this.http.put(`${this.myAppUrl + this.myApiUrl}${id}`,  muestra, { responseType: 'text' });
   }
 
   deleteMuestra(id: number): Observable<string> {
