@@ -19,10 +19,11 @@ export class VerMuestraComponent implements OnInit {
       nombre: '',
       descripcion: ''
     };
-    idRuta: number = 0;
+    id: number = 0;
 
   constructor(private _muestraService: MuestraService,  private aRoute: ActivatedRoute) {
-      this.idRuta = Number(this.aRoute.snapshot.paramMap.get('id'));
+      this.id = Number(this.aRoute.snapshot.paramMap.get('id'));
+
     }
 
   ngOnInit(): void {
@@ -31,7 +32,8 @@ export class VerMuestraComponent implements OnInit {
 
   async obtenerMuestra() {
     try{
-      const data = await firstValueFrom(this._muestraService.getMuestra(this.idRuta));
+
+      const data = await firstValueFrom(this._muestraService.getMuestra(this.id));
       this.muestra = data;
 
     } catch (error) {
