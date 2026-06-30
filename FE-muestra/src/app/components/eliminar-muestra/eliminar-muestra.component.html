@@ -1,1 +1,12 @@
-<p>eliminar-muestra works!</p>
+<div class="body-main">
+  <h1>Eliminar Muestra</h1>
+
+  <div class="main-contenidos">
+    <div class="contenidos-muestra">
+      <p>¿Está seguro de que desea eliminar la muestra con ID: {{ this.id }}?</p>
+      <button (click)="eliminarMuestra()">Eliminar</button>
+      <button [routerLink]="['/listarMuestras']">Cancelar</button>
+    </div>
+  </div>
+
+</div>

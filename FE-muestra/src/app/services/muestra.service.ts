@@ -29,8 +29,8 @@ export class MuestraService {
     return this.http.put<Muestra>(`${this.myAppUrl + this.myApiUrl}${id}`, muestra);
   }
 
-  deleteMuestra(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.myAppUrl + this.myApiUrl}${id}`);
+  deleteMuestra(id: number): Observable<string> {
+    return this.http.delete(`${this.myAppUrl + this.myApiUrl}${id}`, { responseType: 'text' });
   }
 
 }
