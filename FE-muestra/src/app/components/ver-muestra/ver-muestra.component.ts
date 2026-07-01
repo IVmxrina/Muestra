@@ -26,7 +26,9 @@ export class VerMuestraComponent implements OnInit {
   private _snackBar = inject(MatSnackBar);
 
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
+    this._snackBar.open(message, action, {
+      duration: 4000
+    });
   }
 
   constructor(private _muestraService: MuestraService,  private aRoute: ActivatedRoute) {

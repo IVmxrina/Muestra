@@ -31,7 +31,9 @@ export class ListadoMuestrasComponent implements AfterViewInit {
   private _snackBar = inject(MatSnackBar);
 
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
+    this._snackBar.open(message, action, {
+      duration: 4000
+    });
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
