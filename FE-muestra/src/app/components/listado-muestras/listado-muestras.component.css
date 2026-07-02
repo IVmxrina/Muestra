@@ -1,5 +1,21 @@
+
+
+.contenidos-body{
+  width: 80%;
+  height: 100vh;
+  margin: 0 10%;
+  padding: 0 1vw;
+  background-color: white;
+  text-align: center;
+}
+h1{
+margin: 0;
+padding: 2vh 0;
+}
+
+
 table {
-  width: 100%;
+  width: 99%;
 }
 
 .mat-mdc-form-field {

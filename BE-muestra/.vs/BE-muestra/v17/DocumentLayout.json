@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{F3E8D09C-862D-4285-828C-80AE845A7994}|BE-muestra\\BE-muestra.csproj|solutionrelative:be-muestra\\controllers\\muestracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F3E8D09C-862D-4285-828C-80AE845A7994}|BE-muestra\\BE-muestra.csproj|e:\\proyectos\\api-base\\be-muestra\\be-muestra\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F3E8D09C-862D-4285-828C-80AE845A7994}|BE-muestra\\BE-muestra.csproj|solutionrelative:be-muestra\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F3E8D09C-862D-4285-828C-80AE845A7994}|BE-muestra\\BE-muestra.csproj|e:\\proyectos\\api-base\\be-muestra\\be-muestra\\models\\muestra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F3E8D09C-862D-4285-828C-80AE845A7994}|BE-muestra\\BE-muestra.csproj|solutionrelative:be-muestra\\models\\muestra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3E8D09C-862D-4285-828C-80AE845A7994}|BE-muestra\\BE-muestra.csproj|e:\\proyectos\\api-base\\be-muestra\\be-muestra\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3E8D09C-862D-4285-828C-80AE845A7994}|BE-muestra\\BE-muestra.csproj|solutionrelative:be-muestra\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F3E8D09C-862D-4285-828C-80AE845A7994}|BE-muestra\\BE-muestra.csproj|e:\\proyectos\\api-base\\be-muestra\\be-muestra\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -30,7 +30,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\proyectos\\api-base\\BE-muestra\\BE-muestra\\Program.cs",
               "RelativeDocumentMoniker": "BE-muestra\\Program.cs",
@@ -38,8 +38,7 @@
               "RelativeToolTip": "BE-muestra\\Program.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAAACYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-29T15:39:28.064Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-29T15:39:28.064Z"
             },
             {
               "$type": "Document",
@@ -49,23 +48,22 @@
               "RelativeDocumentMoniker": "BE-muestra\\Controllers\\MuestraController.cs",
               "ToolTip": "E:\\proyectos\\api-base\\BE-muestra\\BE-muestra\\Controllers\\MuestraController.cs",
               "RelativeToolTip": "BE-muestra\\Controllers\\MuestraController.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAAAFgAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-29T15:21:26.45Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Muestra.cs",
               "DocumentMoniker": "E:\\proyectos\\api-base\\BE-muestra\\BE-muestra\\Models\\Muestra.cs",
               "RelativeDocumentMoniker": "BE-muestra\\Models\\Muestra.cs",
               "ToolTip": "E:\\proyectos\\api-base\\BE-muestra\\BE-muestra\\Models\\Muestra.cs",
               "RelativeToolTip": "BE-muestra\\Models\\Muestra.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-29T13:08:27.359Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-29T13:08:27.359Z"
             },
             {
               "$type": "Document",
@@ -77,8 +75,7 @@
               "RelativeToolTip": "BE-muestra\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-06-25T05:53:01.746Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T05:53:01.746Z"
             }
           ]
         }

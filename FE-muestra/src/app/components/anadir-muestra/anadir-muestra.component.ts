@@ -50,25 +50,19 @@ export class AnadirMuestraComponent implements OnInit {
 
   async anadirMuestra() {
   if (this.form.invalid) {
-    return; // Evitamos enviar si el formulario no es válido
+    return;
   }
 
-  // CONSTRUCCIÓN MANUAL: Asegura un formato ultra limpio para .NET
   const objetoParaEnviar: Muestra = {
     id: 0,
     nombre: this.form.get('nombre')?.value,
     descripcion: this.form.get('descripcion')?.value,
-    // fechaCreacion NO se pone aquí, ya que .NET la acepta como opcional (DateTime?)
   };
 
   try {
-
     const muestraAdded = await firstValueFrom(this._muestraService.addMuestra(objetoParaEnviar));
-
     this.openSnackBar("La muestra ha sido añadida con exito", "Aceptar")
-
     this.form.reset();
-
   } catch (error) {
     this.openSnackBar("ERROR: La muestra no ha podido ser añadida", "Aceptar");
   }
